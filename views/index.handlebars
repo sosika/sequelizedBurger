@@ -1,0 +1,35 @@
+<h1>Best Burgers in Town!!</h1>
+
+<h2>Create custom burgers right here</h2>
+
+<img src="/assets/img/maxresdefault.jpg"></img>
+
+<form class="create-form">
+  <div class="form-group">
+    <br>
+    <label for="burger">New Burger:</label>
+    <input type="text" id="burger" name="name">
+  </div>
+  <button type="submit">submit</button>
+</form>
+
+<h3>Menu</h3>
+
+<ul>
+    {{#each burgers}}
+      {{#unless devoured}}
+        {{> burger/burger-block devoured=true}}
+      {{/unless}}
+    {{/each}}
+</ul>
+
+
+<h3>Sold Out</h3>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burger/burger-block devoured=false}}
+    {{/if}}
+  {{/each}}
+</ul>
